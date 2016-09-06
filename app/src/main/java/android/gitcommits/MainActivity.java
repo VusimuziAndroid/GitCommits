@@ -160,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... urls) {
 
-
             person = new Person(name,country,twitter);
            /* person.setName(etName.getText().toString());
             person.setCountry(etCountry.getText().toString());

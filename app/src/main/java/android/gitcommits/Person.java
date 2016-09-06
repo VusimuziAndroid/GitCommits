@@ -4,6 +4,7 @@ package android.gitcommits;
  * Created by ABVN237 on 9/6/2016.
  */
 public class Person {
+
    private String name;
    private String country;
    private String twitter;
