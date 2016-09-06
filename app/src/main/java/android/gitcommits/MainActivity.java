@@ -1,5 +1,6 @@
 package android.gitcommits;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -44,21 +45,14 @@ public class MainActivity extends AppCompatActivity {
     private String country;
     private String twitter;
 
+    ProgressDialog PD;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         // get reference to the views
         tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
@@ -153,8 +147,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnPost:
                 if(!validate())
                     Toast.makeText(getBaseContext(), "Enter some data!", Toast.LENGTH_LONG).show();
+                PD = new ProgressDialog(this);
+                PD.setMessage("Loading.....");
+                PD.setCancelable(false);
                 // call AsynTask to perform network operation on separate thread
-                new HttpAsyncTask().execute("http://hmkcode.appspot.com/jsonservlet");
+                new HttpAsyncTask().execute("http://localhost/GitCommits/phpfiles/Insert.php");
                 break;
         }
 
