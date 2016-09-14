@@ -7,7 +7,7 @@ public class Person {
    private String name;
    private String country;
    private String twitter;
-
+//Setting new values
     Person(String name,String country,String twitter){
         this.name=name;
         this.country=country;
