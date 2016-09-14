@@ -13,6 +13,7 @@ public class Person {
         this.country=country;
         this.twitter=twitter;
     }
+    //Methods for returning values
     public String getName(){
         return this.name;
     }
